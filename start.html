@@ -1,6 +1,8 @@
+{% load static %}
+
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script type="text/javascript" src="startjs.js"></script>
-<link href='startstyle.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="{% static 'random/startjs.js' %}"></script>
+<link href="{% static 'random/startstyle.css' %}" rel='stylesheet' type='text/css'>
 
 
 <div class="container">
@@ -16,29 +18,42 @@
         <br><br><br>
          <p class="text">Hi there!</p>
          <p class="text">Nice to see you again</p>
+         <form method="GET" class="text"></form>
          <p class="text">What's on your mind?
            <br>
-           <button>Record</button>
+           <input type="text" id="lname" name="mind" onclick=record()><br><br>
+           <script>
+              function record() {
+                var recognition = new webkitSpeechRecognition();
+                recognition.lang = "en-uS";
+
+                recognition.onresult = function(event) {
+                  console.log(event)
+                }
+                recognition.start();
+              }
+           </script>
            </p>
           <br><br><br>
+        
          <p class="text">What do you see as being the biggest problem?
            <br>
-           <button>Record</button>
+           <input type="text" id="box" onclick=record() name="prob"><br><br>
            </p>
            <br><br><br>
            <p class="text">How does this problem make you feel?
            <br>
-           <button>Record</button>
+           <input type="text" id="box" name="feel" onclick=record()><br><br>
            </p>
            <br><br><br>
            <p class="text">What positive changes would you like to see happen in your life?
            <br>
-           <button>Record</button>
+           <input type="text" id="box" name="changes" onclick=record()><br><br>
            </p>
    <br><br><br>
    <p class="text">What would it take for you to feel happier or more at peace?
            <br>
-           <button>Record</button>
+           <input type="text" id="box" name="peace" onclick=record()><br><br>
            </p>
 
      <br><br><br>
@@ -48,19 +63,19 @@
 
    </p>
 
-<form action="/action.php" class="text">
+<div style="text-align:center;">
  <label for="artist">Artist:</label><br>
- <input type="text" id="lname" name="lname"><br><br>
+ <input type="text" id="lname" name="artist"><br><br>
  <label for="youtuber">Youtuber:</label><br>
- <input type="text" id="lname" name="lname"><br><br>
+ <input type="text" id="lname" name="youtuber"><br><br>
  <label for="show">TV Show:</label><br>
- <input type="text" id="lname" name="lname"><br><br>
+ <input type="text" id="lname" name="show"><br><br>
  <label for="team">Sports Team:</label><br>
- <input type="text" id="lname" name="lname"><br><br>
+ <input type="text" id="lname" name="team"><br><br>
      <br><br>
  <input type="submit" value="Continue">
 </form>
-
+</div>
 <br><br><br>
 <p class="text"> I see. Let's take a few minutes to take a deep breath then. </p>
 <nav><ul><li><a href="breath.html">Breath</a></li></ul></nav>
