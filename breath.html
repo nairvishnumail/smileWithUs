@@ -1,0 +1,49 @@
+<html>
+  <head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="breathjs.js"></script>
+<link href='breathstyle.css' rel='stylesheet' type='text/css'>
+<script>
+
+  //action = window.document.getElementById("action");
+  setInterval(function () {
+    document.getElementById("action").innerHTML = "exhale";
+  }, 5000),
+    setInterval(function () {
+
+      document.getElementById("action").innerHTML = "inhale";
+    }, 10000);
+
+    window.onload = function () {
+        var fiveMinutes = 60 * 2,
+            display = document.querySelector('#time');
+        startTimer(fiveMinutes, display);
+    };
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <span id="time">2 minutes</span>
+    </div>
+    <div class="card">
+      <div id="breathe">
+        <span id="action"> </span>
+
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<html>
+
+<body>
+  <script>
+    setTimeout(function() {
+      window.location.href = 'final.html';
+    }, 120000);
+  </script>
+</body>
+
+</html>
